@@ -1,9 +1,6 @@
 const router = require('express').Router();
-const {Process} = require('../config/config');
+const { getProcess } = require('../controllers/processes');
 
-router.get('/', async (req, res) => {
-    const process = await Process.findAll();
-    res.json(process);
-});
+router.get('/', getProcess);
 
 module.exports = router;

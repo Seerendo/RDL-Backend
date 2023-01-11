@@ -1,60 +1,17 @@
 const router = require('express').Router();
-const {Param} = require('../config/config');
-const { Op } = require("sequelize");
+const {
+  getParams,
+  getParamsByDescription,
+  getParamsByField,
+  getParamFieldAndDescription,
+} = require('../controllers/params.js');
 
-router.get('/', async (req, res) => {
-    const params = await Param.findAll();
-    res.json(params);
-})
+router.get('/', getParams);
 
-router.get('/byDescription', async (req, res) => {
-    const param = await Param.findAll({
-        where: {
-            description: {
-                [Op.like]: '%'+req.body.param+'%'
-            }
-        }
-    });
-    if (param) {
-        res.json(param);
-    } else {
-        res.send('No se encontró el dato' + req.body)
-    }
-})
+router.get('/byDescription', getParamsByDescription);
 
-router.get('/byField', async (req, res) => {
-    const param = await Param.findAll({
-        where: {
-            field: {
-                [Op.like]: '%'+req.body.field+'%'
-            }
-        }
-    });
-    if (param) {
-        res.json(param);
-    } else {
-        res.send('No se encontró el dato' + req.body)
-    }
-})
+router.get('/byField', getParamsByField);
 
-router.get('/byFieldAndDescription', async (req, res) => {
-    const param = await Param.findAll({
-        where: {
-            description: {
-                [Op.like]: '%'+req.body.param+'%'
-            },
-            [Op.and] : [
-                {
-                    [Op.like]: '%'+req.body.field+'%'
-                }
-            ]
-        }
-    });
-    if (param) {
-        res.json(param);
-    } else {
-        res.send('No se encontró el dato' + req.body)
-    }
-})
+router.get('/byFieldAndDescription', getParamFieldAndDescription);
 
 module.exports = router;
