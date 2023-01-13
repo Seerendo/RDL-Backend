@@ -8,18 +8,56 @@ const {
   paramsM,
 } = require('../seeders/params');
 
-const migrationFQ = async (req, res) => {
+const paramsMigrations = async (req, res) => {
+  //Migracion Fisicos Quimicos
   for (const paramFQ of paramsFQ) {
-    console.log(paramFQ.Description);
+    const param = await Param.create({
+      description: paramFQ.Description,
+      cuali: 'false',
+      active: 'true',
+      field: 'FISICO & QUIMICO',
+    });
   }
 
-  /*   const param = await Param.create({
-    description: req.body.param,
-    cuali: req.body.cuali,
-    active: req.body.active,
-    field: req.body.field,
-  });
-  res.json(param.dataValues); */
+  //Migracion Contaminantes
+  for (const paramC of paramsC) {
+    const param = await Param.create({
+      description: paramC.Description,
+      cuali: 'false',
+      active: 'true',
+      field: 'CONTAMINANTE',
+    });
+  }
+
+  //Migracion Funcionales
+  for (const paramF of paramsF) {
+    const param = await Param.create({
+      description: paramF.Description,
+      cuali: 'truee',
+      active: 'true',
+      field: 'FUNCIONAL',
+    });
+  }
+
+  //Migracion Microbiologicos
+  for (const paramM of paramsM) {
+    const param = await Param.create({
+      description: paramM.Description,
+      cuali: 'false',
+      active: 'true',
+      field: 'MICROBIOLOGICO',
+    });
+  }
+
+  //Migracion Instrumentales
+  for (const paramI of paramsI) {
+    const param = await Param.create({
+      description: paramI.Description,
+      cuali: 'false',
+      active: 'true',
+      field: 'INSTRUMENTAL',
+    });
+  }
 };
 
-module.exports = { migrationFQ };
+module.exports = paramsMigrations;

@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-const { migrationFQ } = require('../migrations/params');
+const paramsMigrations = require('../migrations/params');
 
 const ParamsModel = require('../models/params');
 const ProcessModel = require('../models/processes');
@@ -33,7 +33,7 @@ const Process = ProcessModel(sequelize, Sequelize);
 
 sequelize.sync({ force: forceBool }).then(() => {
   if (forceBool) {
-    migrationFQ;
+    paramsMigrations();
   } else {
     console.log('Sincro Exitosa!');
   }
