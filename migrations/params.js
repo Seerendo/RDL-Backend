@@ -9,7 +9,7 @@ const {
 } = require('../seeders/params');
 
 const paramsMigrations = async (req, res) => {
-  //Migracion Fisicos Quimicos
+  /* //Migracion Fisicos Quimicos
   for (const paramFQ of paramsFQ) {
     const param = await Param.create({
       description: paramFQ.Description,
@@ -57,7 +57,7 @@ const paramsMigrations = async (req, res) => {
       active: 'true',
       field: 'INSTRUMENTAL',
     });
-  }
+  } */
 };
 
 module.exports = paramsMigrations;

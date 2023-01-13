@@ -33,7 +33,7 @@ const Process = ProcessModel(sequelize, Sequelize);
 
 sequelize.sync({ force: forceBool }).then(() => {
   if (forceBool) {
-    paramsMigrations();
+    /* paramsMigrations(); */
   } else {
     console.log('Sincro Exitosa!');
   }

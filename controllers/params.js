@@ -46,7 +46,7 @@ const getParamFieldAndDescription = async (req, res) => {
         {
           field: {
             [Op.like]: '%' + req.body.field + '%',
-          }
+          },
         },
       ],
     },
@@ -59,14 +59,12 @@ const getParamFieldAndDescription = async (req, res) => {
 };
 
 const createParam = async (req, res) => {
-  const param = await Param.create(
-    {
-      description: req.body.param,
-      cuali: req.body.cuali,
-      active: req.body.active,
-      field: req.body.field
-    }
-  );
+  const param = await Param.create({
+    description: req.body.param,
+    cuali: req.body.cuali,
+    active: req.body.active,
+    field: req.body.field,
+  });
   res.json(param.dataValues);
 };
 
@@ -75,5 +73,5 @@ module.exports = {
   getParamsByDescription,
   getParamsByField,
   getParamFieldAndDescription,
-  createParam
+  createParam,
 };
