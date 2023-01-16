@@ -36,7 +36,7 @@ const getParamsByField = async (req, res) => {
   }
 };
 
-const getParamFieldAndDescription = async (req, res) => {
+const getParamByFieldAndDescription = async (req, res) => {
   const param = await Param.findAll({
     where: {
       description: {
@@ -70,15 +70,26 @@ const createParam = async (req, res) => {
 
 const createMultiParams = async (req, res) => {
   const param = await Param.bulkCreate(req.body);
-  res.send(param.length+' Datos Ingresados')
-  /* res.json(param.dataValues); */
+  res.send(param.length + ' Datos Ingresados');
+};
+
+const updateParam = async (req, res) => {
+  const param = await Param.update(
+    { description: req.body.param },
+    {
+      where: {
+        id_param: req.body.id,
+      },
+    }
+  );
 };
 
 module.exports = {
   getParams,
   getParamsByDescription,
   getParamsByField,
-  getParamFieldAndDescription,
+  getParamByFieldAndDescription,
   createParam,
-  createMultiParams
+  createMultiParams,
+  updateParam,
 };

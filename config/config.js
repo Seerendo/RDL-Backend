@@ -2,7 +2,8 @@ const Sequelize = require('sequelize');
 
 const ParamsModel = require('../models/params');
 const ProcessModel = require('../models/processes');
-const UnitParamsModel = require('../models/units_process');
+const UnitsModel = require('../models/units.js');
+const UnitParamsModel = require('../models/units_params');
 
 /* const sequelize = new Sequelize('rdl', 'root', '1234', {
   host: 'localhost',
@@ -27,6 +28,7 @@ const sequelize = new Sequelize(
 
 const Param = ParamsModel(sequelize, Sequelize);
 const Process = ProcessModel(sequelize, Sequelize);
+const Units = UnitsModel(sequelize, Sequelize);
 const UnitParams = UnitParamsModel(sequelize, Sequelize);
 
 /* Param.hasMany(UnitParams);
@@ -42,4 +44,5 @@ module.exports = {
   Param,
   Process,
   UnitParams,
+  Units,
 };
