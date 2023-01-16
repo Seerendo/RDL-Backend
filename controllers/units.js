@@ -21,7 +21,16 @@ const getUnitByDescription = async (req, res) => {
   }
 };
 
+const createUnit = async (req, res) => {
+  const units = await Units.create({
+    description: req.body.unit,
+    active: req.body.active,
+  });
+  res.json(units.dataValues);
+};
+
 module.exports = {
   getUnits,
   getUnitByDescription,
+  createUnit,
 };
