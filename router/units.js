@@ -5,9 +5,7 @@ const {
   createUnit,
 } = require('../controllers/units.js');
 
-router.get('/', () => {
-  console.log('getUnits');
-});
+router.get('/', getUnits);
 
 router.get('/byDescription', getUnitByDescription);
 
