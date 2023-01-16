@@ -34,12 +34,12 @@ Process.hasMany(UnitParams);
 UnitParams.belongsTo(Param);
 UnitParams.belongsTo(Process);
  */
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
   console.log('Sincro Exitosa!');
 });
 
 module.exports = {
   Param,
   Process,
-  UnitParams
+  UnitParams,
 };
