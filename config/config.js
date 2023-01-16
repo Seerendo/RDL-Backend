@@ -1,11 +1,8 @@
 const Sequelize = require('sequelize');
 
-const paramsMigrations = require('../migrations/params');
-
 const ParamsModel = require('../models/params');
 const ProcessModel = require('../models/processes');
-
-const forceBool = true;
+const UnitParamsModel = require('../models/units_process');
 
 /* const sequelize = new Sequelize('rdl', 'root', '1234', {
   host: 'localhost',
@@ -30,16 +27,19 @@ const sequelize = new Sequelize(
 
 const Param = ParamsModel(sequelize, Sequelize);
 const Process = ProcessModel(sequelize, Sequelize);
+const UnitParams = UnitParamsModel(sequelize, Sequelize);
 
-sequelize.sync({ force: forceBool }).then(() => {
-  if (forceBool) {
-    /* paramsMigrations(); */
-  } else {
-    console.log('Sincro Exitosa!');
-  }
+/* Param.hasMany(UnitParams);
+Process.hasMany(UnitParams);
+UnitParams.belongsTo(Param);
+UnitParams.belongsTo(Process);
+ */
+sequelize.sync({ force: true }).then(() => {
+  console.log('Sincro Exitosa!');
 });
 
 module.exports = {
   Param,
   Process,
+  UnitParams
 };

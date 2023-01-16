@@ -4,7 +4,8 @@ const {
   getParamsByDescription,
   getParamsByField,
   getParamFieldAndDescription,
-  createParam
+  createParam,
+  createMultiParams
 } = require('../controllers/params.js');
 
 router.get('/', getParams);
@@ -15,6 +16,8 @@ router.get('/byField', getParamsByField);
 
 router.get('/byFieldAndDescription', getParamFieldAndDescription);
 
-router.post('/', createParam)
+router.post('/', createParam);
+
+router.post('/many', createMultiParams);
 
 module.exports = router;

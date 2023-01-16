@@ -68,10 +68,17 @@ const createParam = async (req, res) => {
   res.json(param.dataValues);
 };
 
+const createMultiParams = async (req, res) => {
+  const param = await Param.bulkCreate(req.body);
+  res.send(param.length+' Datos Ingresados')
+  /* res.json(param.dataValues); */
+};
+
 module.exports = {
   getParams,
   getParamsByDescription,
   getParamsByField,
   getParamFieldAndDescription,
   createParam,
+  createMultiParams
 };
