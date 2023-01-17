@@ -1,5 +1,5 @@
 module.exports = (sequelize, type) => {
-  return sequelize.define('param', {
+  return sequelize.define('params', {
     param_id: {
       type: type.INTEGER,
       primaryKey: true,
