@@ -5,6 +5,5 @@ module.exports = (sequelize, type) => {
       primaryKey: true,
     },
     description: type.STRING,
-    timestamps: false,
   });
 };

@@ -28,6 +28,5 @@ module.exports = (sequelize, type) => {
       ],
       defaultValue: 'POR DEFINIR',
     },
-    timestamps: false,
   });
 };
