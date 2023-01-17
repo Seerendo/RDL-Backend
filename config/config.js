@@ -1,9 +1,11 @@
 const Sequelize = require('sequelize');
 
-const ParamsModel = require('../models/params');
-const ProcessModel = require('../models/processes');
-const UnitsModel = require('../models/units.js');
-const UnitParamsModel = require('../models/units_params');
+const {
+  ParamsModel,
+  ProcessModel,
+  UnitModel,
+  UnitParamModel,
+} = require('../models/');
 
 /* const sequelize = new Sequelize('rdl', 'root', '1234', {
   host: 'localhost',
@@ -28,21 +30,21 @@ const sequelize = new Sequelize(
 
 const Param = ParamsModel(sequelize, Sequelize);
 const Process = ProcessModel(sequelize, Sequelize);
-const Units = UnitsModel(sequelize, Sequelize);
-const UnitParams = UnitParamsModel(sequelize, Sequelize);
+const Unit = UnitModel(sequelize, Sequelize);
+const UnitParam = UnitParamModel(sequelize, Sequelize);
 
 /* Param.hasMany(UnitParams);
 Process.hasMany(UnitParams);
 UnitParams.belongsTo(Param);
 UnitParams.belongsTo(Process);
  */
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: true }).then(() => {
   console.log('Sincro Exitosa!');
 });
 
 module.exports = {
   Param,
   Process,
-  UnitParams,
-  Units,
+  UnitParam,
+  Unit,
 };

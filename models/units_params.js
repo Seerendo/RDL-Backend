@@ -1,9 +1,9 @@
 module.exports = (sequelize, type) => {
-  return sequelize.define('units_params', {
-    id_param: {
+  return sequelize.define('unit_param', {
+    param_id: {
       type: type.INTEGER,
     },
-    id_unit: {
+    unit_id: {
       type: type.INTEGER,
     },
     active: {
@@ -11,5 +11,6 @@ module.exports = (sequelize, type) => {
       values: ['false', 'true'],
       defaultValue: 'true',
     },
+    timestamps: false,
   });
 };

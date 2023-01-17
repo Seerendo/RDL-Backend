@@ -1,6 +1,6 @@
 module.exports = (sequelize, type) => {
-  return sequelize.define('params', {
-    id_param: {
+  return sequelize.define('param', {
+    param_id: {
       type: type.INTEGER,
       primaryKey: true,
       autoIncrement: true,
@@ -28,5 +28,6 @@ module.exports = (sequelize, type) => {
       ],
       defaultValue: 'POR DEFINIR',
     },
+    timestamps: false,
   });
 };

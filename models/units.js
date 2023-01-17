@@ -1,6 +1,6 @@
 module.exports = (sequelize, type) => {
-  return sequelize.define('units', {
-    id_unit: {
+  return sequelize.define('unit', {
+    unit_id: {
       type: type.INTEGER,
       primaryKey: true,
       autoIncrement: true,
@@ -11,5 +11,6 @@ module.exports = (sequelize, type) => {
       values: ['false', 'true'],
       defaultValue: 'true',
     },
+    timestamps: false,
   });
 };

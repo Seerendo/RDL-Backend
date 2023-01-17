@@ -1,16 +1,16 @@
-const { Units } = require('../config/config');
+const { Unit } = require('../config/config');
 const { Op } = require('sequelize');
 
 const getUnits = async (req, res) => {
-  const units = await Units.findAll();
+  const units = await Unit.findAll();
   res.json(units);
 };
 
 const getUnitByDescription = async (req, res) => {
-  const units = await Units.findAll({
+  const units = await Unit.findAll({
     where: {
       description: {
-        [Op.like]: '%' + req.body.unit + '%',
+        [Op.like]: '%' + req.body.description + '%',
       },
     },
   });
@@ -22,8 +22,8 @@ const getUnitByDescription = async (req, res) => {
 };
 
 const createUnit = async (req, res) => {
-  const units = await Units.create({
-    description: req.body.unit,
+  const units = await Unit.create({
+    description: req.body.description,
     active: req.body.active,
   });
   res.json(units.dataValues);
