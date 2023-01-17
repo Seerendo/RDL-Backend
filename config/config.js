@@ -1,11 +1,9 @@
 const Sequelize = require('sequelize');
 
-const {
-  ParamsModel,
-  ProcessModel,
-  UnitModel,
-  UnitParamModel,
-} = require('../models/');
+const ParamsModel = require('../models/params');
+const ProcessModel = require('../models/processes');
+const UnitModel = require('../models/units');
+const UnitParamModel = require('../models/units_params');
 
 /* const sequelize = new Sequelize('rdl', 'root', '1234', {
   host: 'localhost',
