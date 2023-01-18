@@ -3,10 +3,10 @@ const { Op } = require('sequelize');
 const sequelize = require('sequelize');
 
 const getUnitsParams = async (req, res) => {
-  const unitsParams = await sequelize.query(
+  const [results, metadata] = await sequelize.query(
     'SELECT p.description, u.description FROM params p INNER JOIN units_params up ON p.param_id = up.param_id INNER JOIN units u ON up.unit_id = u.unit_id'
   );
-  res.json(unitsParams);
+  res.json(results);
 };
 
 const createUnitsParams = async (req, res) => {
