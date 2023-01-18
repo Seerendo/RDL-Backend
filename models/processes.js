@@ -4,6 +4,13 @@ module.exports = (sequelize, type) => {
       type: type.STRING,
       primaryKey: true,
     },
-    description: type.STRING,
+    description: {
+      type: type.STRING,
+      allowNull: false,
+    },
+    active: {
+      type: type.BOOLEAN,
+      defaultValue: true,
+    },
   });
 };

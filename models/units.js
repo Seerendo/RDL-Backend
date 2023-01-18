@@ -5,11 +5,13 @@ module.exports = (sequelize, type) => {
       primaryKey: true,
       autoIncrement: true,
     },
-    description: type.STRING,
+    description: {
+      type: type.STRING,
+      allowNull: false,
+    },
     active: {
-      type: type.ENUM,
-      values: ['false', 'true'],
-      defaultValue: 'true',
+      type: type.BOOLEAN,
+      defaultValue: true,
     },
   });
 };

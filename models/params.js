@@ -5,16 +5,17 @@ module.exports = (sequelize, type) => {
       primaryKey: true,
       autoIncrement: true,
     },
-    description: type.STRING,
+    description: {
+      type: type.STRING,
+      allowNull: false,
+    },
     cuali: {
-      type: type.ENUM,
-      values: ['false', 'true'],
-      defaultValue: 'false',
+      type: type.BOOLEAN,
+      defaultValue: false,
     },
     active: {
-      type: type.ENUM,
-      values: ['false', 'true'],
-      defaultValue: 'false',
+      type: type.BOOLEAN,
+      defaultValue: false,
     },
     field: {
       type: type.ENUM,
