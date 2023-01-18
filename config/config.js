@@ -38,7 +38,7 @@ Process.hasMany(UnitParam);
 UnitParam.belongsTo(Param);
 UnitParam.belongsTo(Process); */
 
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
   console.log('Sincro Exitosa!');
 });
 
