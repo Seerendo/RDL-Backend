@@ -6,15 +6,16 @@ const getUnitsParams = async (req, res) => {
   res.json(unitsParams);
 };
 
-//Obtener la descripcion del parametro con cada unidad vinculada a este
-const getParamDescriptionAndUnitDescription = async (req, res) => {
-  const unitsParams = await UnitParam.findAll({
-    where: {
-      param_id: req.body.param_id,
-    },
+const createUnitsParams = async (req, res) => {
+  const unitsParams = await UnitParam.create({
+    param_id: req.body.param_id,
+    unit_id: req.body.unit_id,
+    active: req.body.active,
   });
+  res.json(unitsParams.dataValues);
 };
 
 module.exports = {
   getUnitsParams,
+  createUnitsParams,
 };
