@@ -1,4 +1,4 @@
-module.exports = (sequelize, type) => {
+const SpecModel = (sequelize, type) => {
   return sequelize.define('specs', {
     spec_id: {
       type: type.STRING,
@@ -29,3 +29,5 @@ module.exports = (sequelize, type) => {
     },
   });
 };
+
+module.exports = SpecModel;

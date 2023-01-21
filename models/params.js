@@ -1,4 +1,4 @@
-module.exports = (sequelize, type) => {
+const ParamsModel = (sequelize, type) => {
   return sequelize.define('params', {
     param_id: {
       type: type.INTEGER,
@@ -31,3 +31,5 @@ module.exports = (sequelize, type) => {
     },
   });
 };
+
+module.exports = ParamsModel;

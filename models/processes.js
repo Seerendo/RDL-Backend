@@ -1,4 +1,4 @@
-module.exports = (sequelize, type) => {
+const ProcessModel = (sequelize, type) => {
   return sequelize.define('processes', {
     process_id: {
       type: type.STRING,
@@ -14,3 +14,5 @@ module.exports = (sequelize, type) => {
     },
   });
 };
+
+module.exports = ProcessModel;

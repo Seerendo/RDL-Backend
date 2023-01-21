@@ -1,4 +1,4 @@
-module.exports = (sequelize, type) => {
+const UnitModel = (sequelize, type) => {
   return sequelize.define('units', {
     unit_id: {
       type: type.INTEGER,
@@ -15,3 +15,5 @@ module.exports = (sequelize, type) => {
     },
   });
 };
+
+module.exports = UnitModel;
