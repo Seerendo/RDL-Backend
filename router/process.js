@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { getProcess } = require('../controllers/processes');
+const { getProcess } = require('../controllers/process');
 
 router.get('/', getProcess);
 

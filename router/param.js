@@ -7,7 +7,7 @@ const {
   createParam,
   createMultiParams,
   updateParam,
-} = require('../controllers/params.js');
+} = require('../controllers/param.js');
 
 router.get('/', getParams);
 

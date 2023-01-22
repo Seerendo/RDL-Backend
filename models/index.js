@@ -1,6 +1,6 @@
-const ParamsModel = require('../models/params');
-const ProcessModel = require('../models/processes');
-const UnitModel = require('../models/units');
-const SpecModel = require('../models/specs');
+const Param = require('./param');
+const Process = require('./process');
+const Unit = require('./unit');
+const Spec = require('./spec');
 
-module.exports = { ParamsModel, ProcessModel, SpecModel, UnitModel };
+module.exports = { Param, Process, Spec, Unit };
