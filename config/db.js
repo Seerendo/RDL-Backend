@@ -10,7 +10,7 @@ const sequelize = new Sequelize(
     }
 );
 
-sequelize.sync({ force: true }).then(() => {
+sequelize.sync({ force: false }).then(() => {
   console.log('Sincro Exitosa!');
 });
 

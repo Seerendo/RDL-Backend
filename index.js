@@ -4,11 +4,10 @@ const apiRouter = require('./router/index');
 const app = express();
 
 const sequelize = require('./config/db');
+require('./config/associations');
 
 app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
-
-require('./config/config');
 
 app.use('/api', apiRouter);
 

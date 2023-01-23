@@ -1,4 +1,4 @@
-const { Unit } = require('../config/config');
+const { Unit } = require('../models/index');
 const { Op } = require('sequelize');
 
 const getUnits = async (req, res) => {
