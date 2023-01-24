@@ -6,7 +6,7 @@ const app = express();
 const sequelize = require('./config/db');
 require('./config/associations');
 
-app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ extended: true, limit: '50mb' }));
 
 app.use('/api', apiRouter);
@@ -14,9 +14,12 @@ app.use('/api', apiRouter);
 app.listen(3000, () => {
   console.log('La app ha arrancado en http://localhost:3000');
 
-  sequelize.authenticate().then(() => {
-    console.log('Nos hemos conectado a la base de datos');
-  }).catch(error => {
-    console.log('Se ha producido un error', error);
-  });
+  sequelize
+    .authenticate()
+    .then(() => {
+      console.log('Nos hemos conectado a la base de datos');
+    })
+    .catch((error) => {
+      console.log('Se ha producido un error', error);
+    });
 });

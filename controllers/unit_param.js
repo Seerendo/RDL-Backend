@@ -6,19 +6,13 @@ const getUnitByParam = async (req, res) => {
       {
         model: Unit,
         required: true,
-        attributes: [
-          'unit_id',
-          'description',
-          'active'
-        ]
-      }
+        attributes: ['unit_id', 'description', 'active'],
+      },
     ],
   });
   res.json(getUnitParam);
 };
 
-const createUnitParam = async (req, res) => {
-  
-};
+const createUnitParam = async (req, res) => {};
 
-module.exports = { getUnitByParam }
+module.exports = { getUnitByParam };

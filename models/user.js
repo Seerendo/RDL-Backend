@@ -1,5 +1,9 @@
-module.exports = (sequelize, type) => {
-  return sequelize.define('users', {
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/db');
+
+class User extends Model {}
+User.init(
+  {
     user_id: {
       type: type.STRING,
       allowNull: false,
@@ -23,5 +27,11 @@ module.exports = (sequelize, type) => {
       type: type.STRING,
       allowNull: false,
     },
-  });
-};
+  },
+  {
+    sequelize,
+    modelName: 'user',
+  }
+);
+
+module.exports = User;

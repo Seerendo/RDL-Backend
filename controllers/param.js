@@ -64,17 +64,22 @@ const getParamByFieldAndDescription = async (req, res) => {
 
 //Crear parametro
 const createParam = async (req, res) => {
-  const param = await Param.create({
-    description: req.body.description,
-    cuali: req.body.cuali,
-    active: req.body.active,
-    field: req.body.field,
-    units: [{
-      description: req.body.unitDescription
-    }],
-  }, {
-    include: "units"
-  });
+  const param = await Param.create(
+    {
+      description: req.body.description,
+      cuali: req.body.cuali,
+      active: req.body.active,
+      field: req.body.field,
+      units: [
+        {
+          description: req.body.unitDescription,
+        },
+      ],
+    },
+    {
+      include: 'units',
+    }
+  );
   res.json(param.dataValues);
 };
 
