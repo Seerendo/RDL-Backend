@@ -5,26 +5,26 @@ class User extends Model {}
 User.init(
   {
     user_id: {
-      type: type.STRING,
+      type: DataTypes.STRING,
       allowNull: false,
       unique: true,
     },
     firstName: {
-      type: type.STRING,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     lastName: {
-      type: type.STRING,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     email: {
-      type: type.STRING,
+      type: DataTypes.STRING,
       allowNull: false,
       unique: true,
       isEmail: true,
     },
     password: {
-      type: type.STRING,
+      type: DataTypes.STRING,
       allowNull: false,
     },
   },

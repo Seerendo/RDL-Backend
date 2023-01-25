@@ -17,8 +17,8 @@ sequelize
   .sync({ force: true })
   .then(() => {
     console.log('Sincro Exitosa!');
-  })
-  .then(() => {
+  });
+  /* .then(() => {
     ParamSeeder.forEach((param) => Param.create(param));
     console.log('Parámetros Cargados');
   })
@@ -29,6 +29,6 @@ sequelize
   .then(() => {
     UnitSeerder.fotEach((unit) => Unit.create(unit));
     console.log('Unidades Cargadas');
-  });
+  }); */
 
 module.exports = sequelize;
