@@ -1,4 +1,4 @@
-const { Param, Unit, User, Spec } = require('../models/index');
+const { Param, Unit, User, Spec, Process } = require('../models/index');
 
 //Association Param-Unit (n,n)
 Param.belongsToMany(Unit, {
@@ -11,8 +11,9 @@ Unit.belongsToMany(Param, {
   foreignKey: 'unit_id',
 });
 
-//Association User-Specs (1,n)
+//Association User-Spec (1,n)
 User.hasMany(Spec);
-Spec.belongsTo(User, {
-  foreignKey: 'user_id',
-});
+Spec.belongsTo(User);
+
+//Association SpecData
+

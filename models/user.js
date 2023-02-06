@@ -6,6 +6,7 @@ User.init(
   {
     user_id: {
       type: DataTypes.STRING,
+      primaryKey: true,
       allowNull: false,
       unique: true,
     },
@@ -31,6 +32,7 @@ User.init(
   {
     sequelize,
     modelName: 'user',
+    timestamps: false
   }
 );
 

@@ -37,6 +37,7 @@ Param.init(
   {
     sequelize,
     modelName: 'param',
+    timestamps: false
   }
 );
 

@@ -1,10 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
 
-class Unit extends Model {}
-Unit.init(
+class Frecuency extends Model {}
+Frecuency.init(
   {
-    unit_id: {
+    frecuency_id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
@@ -20,9 +20,8 @@ Unit.init(
   },
   {
     sequelize,
-    modelName: 'unit',
-    timestamps: false
+    modelName: 'frecuency',
   }
 );
 
-module.exports = Unit;
+module.exports = Frecuency;

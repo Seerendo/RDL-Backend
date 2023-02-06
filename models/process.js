@@ -20,6 +20,7 @@ Process.init(
   {
     sequelize,
     modelName: 'process',
+    timestamps: false
   }
 );
 
