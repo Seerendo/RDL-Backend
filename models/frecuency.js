@@ -21,6 +21,7 @@ Frecuency.init(
   {
     sequelize,
     modelName: 'frecuency',
+    timestamps: false,
   }
 );
 
