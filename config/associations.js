@@ -1,4 +1,4 @@
-const { Param, Unit, User, Spec, Process } = require('../models/index');
+const { Param, Unit, User, Spec } = require('../models/index');
 
 //Association Param-Unit (n,n)
 Param.belongsToMany(Unit, {

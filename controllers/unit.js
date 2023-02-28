@@ -1,11 +1,13 @@
 const { Unit } = require('../models/index');
 const { Op } = require('sequelize');
 
+//Listar todas las unidades
 const getUnits = async (req, res) => {
   const units = await Unit.findAll();
   res.json(units);
 };
 
+//Filtrar unidad por descripción
 const getUnitByDescription = async (req, res) => {
   const units = await Unit.findAll({
     where: {
@@ -21,6 +23,7 @@ const getUnitByDescription = async (req, res) => {
   }
 };
 
+//Crear unidad
 const createUnit = async (req, res) => {
   const units = await Unit.create({
     description: req.body.description,
@@ -29,8 +32,15 @@ const createUnit = async (req, res) => {
   res.json(units.dataValues);
 };
 
+//Crear lote de unidades
+const createMultiUnits = async (req, res) => {
+  const unit = await Unit.bulkCreate(req.body);
+  res.send(unit.length + ' Datos Ingresados');
+};
+
 module.exports = {
   getUnits,
   getUnitByDescription,
   createUnit,
+  createMultiUnits,
 };

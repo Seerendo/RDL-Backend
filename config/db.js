@@ -1,4 +1,5 @@
 const { Sequelize } = require('sequelize');
+const { Frecuency } = require('../models/index');
 const { development, testing } = require('./config');
 
 const database = development;
@@ -17,6 +18,6 @@ sequelize
   .sync({ force: true })
   .then(() => {
     console.log('Sincro Exitosa!');
-  });
+});
 
 module.exports = sequelize;

@@ -83,7 +83,7 @@ const createParam = async (req, res) => {
   res.json(param.dataValues);
 };
 
-//Cargar multiples parametros
+//Cargar lote de parámetros
 const createMultiParams = async (req, res) => {
   const param = await Param.bulkCreate(req.body);
   res.send(param.length + ' Datos Ingresados');
