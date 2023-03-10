@@ -6,13 +6,19 @@ const Param = require('./param');
 class UnitParam extends Model {}
 UnitParam.init(
   {
-    association_id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true
-    },
     param_id: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: true,
+      type: DataTypes.INTEGER,
+      references: {
+        model: Param,
+        key: 'param_id',
+      },
+    },
+    unit_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: Unit,
+        key: 'unit_id',
+      },
     },
     //#TODO: Realizar foreign key
   },
@@ -22,5 +28,19 @@ UnitParam.init(
     timestamps: false,
   }
 );
+
+Param.belongsToMany(Unit, {
+  through: 'unit_params',
+  foreignKey: 'param_id',
+  onDelete: 'CASCADE',
+  onUpdate: 'CASCADE',
+});
+
+Unit.belongsToMany(Param, {
+  through: 'unit_params',
+  foreignKey: 'unit_id',
+  onDelete: 'CASCADE',
+  onUpdate: 'CASCADE',
+});
 
 module.exports = UnitParam;

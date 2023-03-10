@@ -1,5 +1,7 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/db');
+const User = require('./user');
+const Param = require('./param');
 
 class Spec extends Model {}
 Spec.init(
@@ -27,11 +29,22 @@ Spec.init(
       ],
       defaultValue: 'SIN ESPECIFICACION',
     },
+    user_id: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: false,
+      references: {
+        model: User,
+        key: 'user_id',
+      },
+    },
   },
   {
     sequelize,
     modelName: 'spec',
   }
 );
+
+Param.belongsTo(Spec);
 
 module.exports = Spec;

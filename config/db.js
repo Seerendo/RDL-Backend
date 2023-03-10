@@ -2,7 +2,7 @@ const { Sequelize } = require('sequelize');
 const { Frecuency } = require('../models/index');
 const { development, testing } = require('./config');
 
-const database = development;
+const database = testing;
 
 const sequelize = new Sequelize(
   database.database,
@@ -14,10 +14,8 @@ const sequelize = new Sequelize(
   }
 );
 
-sequelize
-  .sync({ force: true })
-  .then(() => {
-    console.log('Sincro Exitosa!');
+sequelize.sync({ force: true }).then(() => {
+  console.log('Sincro Exitosa!');
 });
 
 module.exports = sequelize;
