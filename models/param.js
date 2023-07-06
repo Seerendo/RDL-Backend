@@ -15,6 +15,12 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "paramId",
       });
 
+      param.belongsToMany(models.process, {
+        through: "process_param",
+        as: "processes",
+        foreignKey: "processId",
+      });
+
       param.hasMany(models.spec_data);
     }
   }

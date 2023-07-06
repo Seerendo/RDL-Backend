@@ -1,17 +1,12 @@
 const router = require("express").Router();
-const {
-  getUnits,
-  getUnitByDescription,
-  createUnit,
-  createMultiUnits,
-} = require("../controllers/unit.controller");
+const { UnitController } = require("../controllers");
 
-router.get("/", getUnits);
+router.get("/", UnitController.getUnits);
 
-router.get("/byDescription", getUnitByDescription);
+router.get("/byDescription", UnitController.getUnitByDescription);
 
-router.post("/", createUnit);
+router.post("/", UnitController.createUnit);
 
-router.post("/many", createMultiUnits);
+router.post("/many", UnitController.createMultiUnits);
 
 module.exports = router;

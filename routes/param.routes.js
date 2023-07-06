@@ -1,27 +1,19 @@
 const router = require("express").Router();
 
-const {
-  getParams,
-  getParamsByDescription,
-  getParamsByField,
-  getParamByFieldAndDescription,
-  createParam,
-  createMultiParams,
-  updateParam,
-} = require("../controllers/param.controller");
+const { ParamController } = require("../controllers");
 
-router.get("/", getParams);
+router.get("/", ParamController.getParams);
 
-router.get("/byDescription", getParamsByDescription);
+router.get("/byDescription", ParamController.getParamsByDescription);
 
-router.get("/byField", getParamsByField);
+router.get("/byField", ParamController.getParamsByField);
 
-router.get("/byFieldAndDescription", getParamByFieldAndDescription);
+router.get("/byFieldAndDescription", ParamController.getParamByFieldAndDescription);
 
-router.post("/", createParam);
+router.post("/", ParamController.createParam);
 
-router.post("/many", createMultiParams);
+router.post("/many", ParamController.createMultiParams);
 
-router.put("/", updateParam);
+router.put("/", ParamController.updateParam);
 
 module.exports = router;

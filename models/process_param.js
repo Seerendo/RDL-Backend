@@ -1,7 +1,7 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class process extends Model {
+  class process_param extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -9,29 +9,19 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      process.belongsToMany(models.param, {
-        through: "process_param",
-        as: "params",
-        foreignKey: "processId",
-      });
-
-      process.hasMany(models.spec_data);
     }
   }
-  process.init(
+  process_param.init(
     {
-      processId: {
-        primaryKey: true,
-        type: DataTypes.INTEGER,
-      },
-      description: DataTypes.STRING,
+      paramId: DataTypes.INTEGER,
+      processId: DataTypes.INTEGER,
       active: DataTypes.BOOLEAN,
     },
     {
       sequelize,
-      modelName: "process",
+      modelName: "process_param",
       timestamps: false,
     }
   );
-  return process;
+  return process_param;
 };
