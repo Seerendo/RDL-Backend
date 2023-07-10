@@ -7,14 +7,12 @@ const UnitParam = db["unit_param"];
 class UnitParamController {
   //Inner Join entre la tabla relación de UnitParam y las tablas Param - Unit
   getUnitByParam = async (req, res) => {
-    const getUnitParam = await Param.findAll({
-      include: [
-        {
-          model: Unit,
-          required: true,
-          attributes: ["unitId", "description", "active"],
-        },
-      ],
+    const getUnitParam = await UnitParam.findAll({
+      attributes: ["active"],
+      /* include: {
+        model: Param,
+        required: true
+      }, */
     });
     res.status(200).json(getUnitParam);
   };
