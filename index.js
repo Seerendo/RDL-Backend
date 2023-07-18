@@ -5,10 +5,11 @@ const apiRouter = require("./routes/index");
 const db = require("./models");
 
 app
-  .use("/api", apiRouter)
-  .use(cors())
   .use(express.json({ limit: "50mb" }))
-  .use(express.urlencoded({ limit: "50mb" }));
+  .use(express.urlencoded({ extended: true, limit: "50mb" }))
+  .use(cors());
+
+app.use("/api", apiRouter);
 
 app.listen(3000, () => {
   console.log("Empezando");
