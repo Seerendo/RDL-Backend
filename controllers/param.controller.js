@@ -82,7 +82,6 @@ class ParamsController {
 
   //Crear parametro
   createParam = async (req, res) => {
-    const { body } = req;
     try {
       const param = await Param.create({
         description: req.body.description,

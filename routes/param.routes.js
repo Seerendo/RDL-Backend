@@ -11,7 +11,7 @@ router.get("/byField", ParamController.getParamsByField);
 
 router.get("/byFieldAndDescription", ParamController.getParamByFieldAndDescription);
 
-router.post("/", /* validateCreate, */ ParamController.createParam);
+router.post("/", validateCreate, ParamController.createParam);
 
 router.post("/many", ParamController.createMultiParams);
 
