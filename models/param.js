@@ -28,9 +28,10 @@ module.exports = (sequelize, DataTypes) => {
     {
       paramId: {
         primaryKey: true,
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
       },
       description: DataTypes.STRING,
+      search: DataTypes.STRING,
       cuali: DataTypes.BOOLEAN,
       active: DataTypes.BOOLEAN,
       field: {

@@ -15,21 +15,21 @@ module.exports = {
         },
       },
       paramId: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         references: {
           model: "params",
           key: "paramId",
         },
       },
       processId: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         references: {
           model: "processes",
           key: "processId",
         },
       },
       unitId: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         references: {
           model: "units",
           key: "unitId",

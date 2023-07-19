@@ -5,17 +5,19 @@ module.exports = {
     await queryInterface.createTable("params", {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         field: "paramId",
       },
       description: {
         allowNull: false,
         type: Sequelize.STRING,
       },
+      search: {
+        type: Sequelize.STRING,
+      },
       cuali: {
-        defaultValue: true,
+        defaultValue: false,
         type: Sequelize.BOOLEAN,
       },
       active: {

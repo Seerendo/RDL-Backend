@@ -13,8 +13,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   process_param.init(
     {
-      paramId: DataTypes.INTEGER,
-      processId: DataTypes.INTEGER,
+      paramId: DataTypes.STRING,
+      processId: DataTypes.STRING,
       active: DataTypes.BOOLEAN,
     },
     {

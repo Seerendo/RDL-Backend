@@ -5,13 +5,16 @@ module.exports = {
     await queryInterface.createTable("units", {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         field: "unitId",
       },
       description: {
+        allowNull: false,
         type: Sequelize.STRING,
+      },
+      search: {
+        type: Sequelize.STRING
       },
       active: {
         defaultValue: true,

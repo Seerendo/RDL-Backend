@@ -5,12 +5,15 @@ module.exports = {
     await queryInterface.createTable("processes", {
       id: {
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         field: "processId",
       },
       description: {
+        allowNull: false,
+        type: Sequelize.STRING,
+      },
+      search: {
         type: Sequelize.STRING,
       },
       active: {

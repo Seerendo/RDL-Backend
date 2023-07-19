@@ -13,8 +13,8 @@ module.exports = (sequelize, DataTypes) => {
   }
   unit_param.init(
     {
-      paramId: DataTypes.INTEGER,
-      unitId: DataTypes.INTEGER,
+      paramId: DataTypes.STRING,
+      unitId: DataTypes.STRING,
       active: DataTypes.BOOLEAN,
     },
     {

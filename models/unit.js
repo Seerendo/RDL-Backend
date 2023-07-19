@@ -22,9 +22,10 @@ module.exports = (sequelize, DataTypes) => {
     {
       unitId: {
         primaryKey: true,
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
       },
       description: DataTypes.STRING,
+      search: DataTypes.STRING,
       active: DataTypes.BOOLEAN,
     },
     {
