@@ -10,12 +10,12 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       process.belongsToMany(models.param, {
-        through: "process_param",
+        through: "unitParamProcess",
         as: "params",
         foreignKey: "processId",
       });
 
-      process.hasMany(models.spec_data);
+      process.hasMany(models.specData);
     }
   }
   process.init(

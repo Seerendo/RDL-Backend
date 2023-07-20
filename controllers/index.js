@@ -1,12 +1,12 @@
 const Param = require("./param.controller");
 const Unit = require("./unit.controller");
-const UnitParam = require("./unit_param.controller");
+const UnitParamProcess = require("./unitParamProcess.controller");
 const ParamController = new Param();
 const UnitController = new Unit();
-const UnitParamController = new UnitParam();
+const UnitParamProcessController = new UnitParamProcess();
 
 module.exports = {
   ParamController,
   UnitController,
-  UnitParamController,
+  UnitParamProcessController,
 };

@@ -10,12 +10,12 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       unit.belongsToMany(models.param, {
-        through: "unit_param",
+        through: "unitParamProcess",
         as: "params",
         foreignKey: "unitId",
       });
 
-      unit.hasMany(models.spec_data);
+      unit.hasMany(models.specData);
     }
   }
   unit.init(

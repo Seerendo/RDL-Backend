@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       spec.belongsTo(models.user);
 
-      spec.hasOne(models.spec_data);
+      spec.hasOne(models.specData);
     }
   }
   spec.init(

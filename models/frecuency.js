@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      frecuency.hasMany(models.spec_data);
+      frecuency.hasMany(models.specData);
     }
   }
   frecuency.init({
