@@ -2369,6 +2369,11 @@ module.exports = {
         description: "yd3",
         search: "Yarda cúbica",
       },
+      {
+        unitId: "UN0474",
+        description: "",
+        search: "SIN UNIDAD",
+      },
     ]);
   },
 

@@ -13,6 +13,8 @@ module.exports = (sequelize, DataTypes) => {
         through: "unitParamProcess",
         as: "params",
         foreignKey: "processId",
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE",
       });
 
       process.hasMany(models.specData);

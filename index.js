@@ -1,4 +1,5 @@
 const express = require("express");
+const jwt = require("jsonwebtoken");
 const app = express();
 const cors = require("cors");
 const apiRouter = require("./routes/index");
@@ -11,7 +12,7 @@ app
 
 app.use("/api", apiRouter);
 
-app.listen(3000, () => {
+app.listen(3002, () => {
   console.log("Empezando");
 
   db.sequelize
