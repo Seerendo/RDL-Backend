@@ -5,23 +5,31 @@ const Unit = db["unit"];
 class UnitController {
   //Listar todas las unidades
   getUnits = async (req, res) => {
-    const units = await Unit.findAll();
-    res.json(units);
+    try {
+      const units = await Unit.findAll();
+      res.status(200).json(units);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   //Filtrar unidad por descripción
   getUnitByDescription = async (req, res) => {
-    const units = await Unit.findAll({
-      where: {
-        description: {
-          [Op.like]: "%" + req.body.description + "%",
+    try {
+      const units = await Unit.findAll({
+        where: {
+          description: {
+            [Op.like]: "%" + req.body.description + "%",
+          },
         },
-      },
-    });
-    if (units) {
-      res.json(units);
-    } else {
-      res.send("No se encontró el dato" + req.body);
+      });
+      if (units) {
+        res.json(units);
+      } else {
+        res.send("No se encontró la unidad" + req.body);
+      }
+    } catch (error) {
+      console.log(error);
     }
   };
 

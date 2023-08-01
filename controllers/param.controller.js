@@ -9,27 +9,28 @@ class ParamsController {
       const params = await Param.findAll();
       res.status(200).json(params);
     } catch (error) {
-      httpError(res, error);
+      console.log(error);
     }
   };
 
   //Obtener parametros por descripcion
   getParamsByDescription = async (req, res) => {
+    const { body } = req;
     try {
-      const param = await Param.findAll({
+      const params = await Param.findAll({
         where: {
           description: {
-            [Op.like]: "%" + req.body.description + "%",
+            [Op.like]: "%" + body.description + "%",
           },
         },
       });
-      if (param) {
-        res.status(200).json(param);
+      if (params) {
+        res.status(200).json(params);
       } else {
         res.send("No existen características con esta descripción" + req.body);
       }
     } catch (error) {
-      httpError(res, error);
+      console.log(error);
     }
   };
 
@@ -49,7 +50,7 @@ class ParamsController {
         res.send("No se encontraron características " + req.body);
       }
     } catch (error) {
-      httpError(res, error);
+      console.log(error);
     }
   };
 
@@ -76,26 +77,22 @@ class ParamsController {
         res.send("No se encontraron características " + req.body);
       }
     } catch (error) {
-      httpError(res, error);
+      console.log(error);
     }
   };
 
   //Crear parametro
   createParam = async (req, res) => {
+    const { body } = req;
     try {
-      const param = await Param.create({
-        description: req.body.description,
-        cuali: req.body.cuali,
-        active: req.body.active,
-        field: req.body.field,
-      });
-      res.status(201).json(param.dataValues);
+      const param = await Param.create(body);
+      res.status(201).json(body);
     } catch (error) {
-      httpError(res, error);
+      console.log(error);
     }
   };
 
-  //Cargar lote de parámetros
+  //Cargar lote de parámetros (DEPRECATED)
   createMultiParams = async (req, res) => {
     const param = await Param.bulkCreate(req.body);
     res.send(param.length + " Datos Ingresados");
@@ -103,17 +100,16 @@ class ParamsController {
 
   //Actualizar parametro por ID
   updateParam = async (req, res) => {
+    const { body } = req;
     try {
-      const param = await Param.update(
-        { description: req.body.description },
-        {
-          where: {
-            param_id: req.body.param_id,
-          },
-        }
-      );
+      const param = await Param.update(body, {
+        where: {
+          paramId: body.paramId,
+        },
+      });
+      res.status(200).json(body);
     } catch (error) {
-      httpError(res, error);
+      console.log(error);
     }
   };
 }

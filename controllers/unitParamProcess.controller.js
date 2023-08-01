@@ -7,7 +7,6 @@ const Process = db["process"];
 class UnitParamProcessController {
   //Inner Join entre la tabla relación de UnitParamProcess
   getUnitByParam = async (req, res) => {
-    req.body.description = "";
     const getUnitParam = await Param.findAll({
       attributes: ["description", "active", "cuali", "field"],
       include: [
@@ -31,6 +30,24 @@ class UnitParamProcessController {
       },
     });
     res.status(200).json(getUnitParam);
+  };
+
+  //Crear relación de Unidad-Parametro-Proceso
+  createUPP = async (req, res) => {
+    const { body } = req;
+    try {
+      const param = await Param.create({
+        paramId: body.paramId,
+        description: body.description,
+        cuali: body.cuali,
+        search: body.cuali,
+        active: body.active,
+        field: body.field,
+      });
+      res.status(201).json(param.dataValues);
+    } catch (error) {
+      console.log(error);
+    }
   };
 }
 

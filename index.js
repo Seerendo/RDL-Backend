@@ -12,7 +12,7 @@ app
 
 app.use("/api", apiRouter);
 
-app.listen(3002, () => {
+app.listen(3000, () => {
   console.log("Empezando");
 
   db.sequelize
